@@ -1,13 +1,14 @@
-import { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js'
-function App() {
+import { useState } from 'react'
+import { Outlet } from 'react-router-dom'
 
-  return (
-    <>
-      
-    </>
-  )
+function App() {
+    return (
+      <>
+        <Outlet/>
+      </>
+    )
 }
 
 export default App
