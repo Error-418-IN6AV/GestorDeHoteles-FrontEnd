@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 
 export const HotelsPage = () => {
     const [hotels, setHotels, searchResult] = useState([{}])
-    const [usersManager, setUser] = useState([])
+    const [users, setUser] = useState([])
     const [idHotel, setIdHotel] = useState();
 
     const form = {
@@ -47,10 +47,10 @@ export const HotelsPage = () => {
 
     const getAdminHotel = async () => {
         try {
-            const { data } = await axios('http://localhost:3000/user/getAdHotel')
-            if (data.usersManager) {
+            const { data } = await axios('http://localhost:3000/user/getManager')
+            if (data.users) {
                 console.log(data)
-                setUser(data.usersManager)
+                setUser(data.users)
             }
         } catch (err) {
             console.log(err)
@@ -151,7 +151,7 @@ export const HotelsPage = () => {
                                         <label htmlFor="inputAdminHotel" className='form-label'>Admin Hotel</label>
                                         <select className='form-control' id="inputAdminHotel">
                                             {
-                                                usersManager.map(({ _id, name }, e) => {
+                                                users.map(({ _id, name }, e) => {
                                                     return (
                                                         <option key={e} value={_id}>{name}</option>
                                                     )
