@@ -5,6 +5,8 @@ import { NotFound } from './pages/NotFound';
 import { HomePage } from './pages/HomePage';
 import { LoginPage } from './pages/LoginPage';
 import { RegisterPage } from './pages/RegisterPage';
+import { ReservationPage } from './pages/Reservation/ReservationPage';
+import { UpdatePageReserva } from './pages/Reservation/UpdatePageReserva';
 
 export const AuthContext = createContext();
 
@@ -38,6 +40,16 @@ export const Index = () => {
               path: '/login',
               element: <LoginPage></LoginPage>
             },
+            {
+              path: '/reserva',
+              element: <ReservationPage/>,
+              children: [
+                {
+                  path: 'update/:id',
+                  element: <UpdatePageReserva></UpdatePageReserva>
+                }
+              ]
+            }
           ]
         }
       ])
